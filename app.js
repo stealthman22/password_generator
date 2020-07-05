@@ -16,11 +16,11 @@ generateEl.addEventListener('click', () => {
 	const hasLower = lowercaseEl.checked;
 	const hasNumber = numbersEl.checked;
 	const hasSymbol = symbolsEl.checked;
-	resultEl.innerText = generatePassword(hasUpper, hasLower, hasNumber, hasSymbol);
+	resultEl.innerText = generatePassword(hasUpper, hasLower, hasNumber, hasSymbol, length);
 });
 
 // 5 generate passowrd function
-function generatePassword(lower, upper, number, symbol) {
+function generatePassword(lower, upper, number, symbol, length) {
 	// 1. init a pw var
 	// 2. filter out unchecked types
 	// 3. loop over length and call generator func for each type
@@ -31,7 +31,7 @@ function generatePassword(lower, upper, number, symbol) {
 
 	// 2
 	const typesCount = lower + upper + number + symbol;
-
+	// console.log('typesCount: ', typesCount);
 	// array of objects
 	const typesArr = [ { lower }, { upper }, { number }, { symbol } ].filter((item) => Object.values(item)[0]);
 	// console.log(typesArr);
@@ -44,11 +44,16 @@ function generatePassword(lower, upper, number, symbol) {
 	// 3
 	for (let i = 0; i < length; i += typesCount) {
 		typesArr.forEach((type) => {
-			const funcName = Object.keys(type)[2];
+			const funcName = Object.keys(type)[0];
 			console.log(funcName);
-			generatePassword += randomFunc[funcName]();
+			generatedPassword += randomFunc[funcName]();
 		});
 	}
+
+	// slice from the begining to the length
+	// so that you get the exact length, not iteration of generated pw
+
+	console.log(generatedPassword.slice(0, length));
 }
 
 // 2 object that will be called
