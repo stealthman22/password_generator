@@ -7,6 +7,7 @@ const numbersEl = document.getElementById('numbers');
 const symbolsEl = document.getElementById('symbols');
 const generateEl = document.getElementById('generate');
 const clipboardEl = document.getElementById('clipboard');
+console.log('clipboardEl');
 
 // 4 generate events listeners
 generateEl.addEventListener('click', () => {
