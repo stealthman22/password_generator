@@ -111,7 +111,7 @@ function getRandomSymbols() {
 }
 
 console.log(getRandomSymbols());
-
+console.log(getRandomNumbers());
 // select root nodes
 // This is my first project after almost staying of js coding
 // for about two months
