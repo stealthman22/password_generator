@@ -121,3 +121,4 @@ console.log(getRandomNumbers());
 
 // making a string a number
 // returning true or false in a filter
+alert('never give up')
